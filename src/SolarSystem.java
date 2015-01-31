@@ -22,19 +22,15 @@ public class SolarSystem {
 		CelestialBody.GEORGE.setR(new Vector2D(2000000,2000000));
 		CelestialBody.GEORGE.setV(Vector2D.xUnit.scale(-1e11));
 
-		findAcceleration(CelestialBody.FAT_FRED);
-		findAcceleration(CelestialBody.GEORGE);
-
-
-
 		//TO DO ALL OF THEM!!!
 		/*for (CelestialBody me : CelestialBody.values()){
 			me.
 		}
-
+		 */
+		
 		for (CelestialBody me : CelestialBody.values()){
 			findAcceleration(me);
-		}*/
+		}
 	}
 
 	private static void update(double dt){

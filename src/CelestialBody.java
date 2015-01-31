@@ -17,8 +17,8 @@ public enum CelestialBody {
 	
 	//TEST SUBJECTS!!!
 	//FRED (1.989e23, 10),
-	FAT_FRED (1.989e25, 20),
-	GEORGE (1.989e23, 10);
+	FAT_FRED (1.989e25, 30),
+	GEORGE (1.989e23, 15);
 	
 
 	public final double mass, radius;
