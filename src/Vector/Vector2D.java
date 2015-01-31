@@ -126,7 +126,7 @@ public class Vector2D extends Vector{
 		return new Vector2D(newX, newY);
 	}
 	
-	public void iAdd(Vector b){
+	public void addTo(Vector b){
 		this.x += b.getX();
 		this.y += b.getY();
 	}
@@ -134,6 +134,10 @@ public class Vector2D extends Vector{
 	//Subtracts vectors.
 	public Vector sub(Vector b){
 		return add(b.scale(-1));
+	}
+	
+	public void subTo(Vector b){
+		addTo(b.scale(-1));
 	}
 	
 	//Takes the dot product with vector b.
@@ -190,10 +194,6 @@ public class Vector2D extends Vector{
 		double newX = this.x*Math.cos(theta) - this.y*Math.sin(theta);
 		double newY = this.x*Math.sin(theta) + this.y*Math.cos(theta);
 		return new Vector2D(newX, newY);
-	}
-
-	public void iAdd(){
-		
 	}
 
 }

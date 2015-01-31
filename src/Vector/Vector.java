@@ -24,7 +24,9 @@ public abstract class Vector{
 	public abstract void setXAngle(int i);
 	public abstract void setXAngleDeg(int i);
 	public abstract Vector add(Vector b);
+	public abstract void addTo(Vector b);
 	public abstract Vector sub(Vector b);
+	public abstract void subTo(Vector b);
 	public abstract double dot(Vector b);
 	public abstract Vector cross(Vector b);		
 	public abstract Vector scale(int s);		

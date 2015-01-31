@@ -12,10 +12,10 @@ public class SolarSystem {
 	
 	private static void intialise(){
 		//for (CelestialBody me : CelestialBody.values()){
-		CelestialBody.FRED.setR(new Vector2D(200,200));
+		CelestialBody.FRED.setR(new Vector2D(2000,1000));
 		CelestialBody.FRED.setV(Vector2D.ZERO);
 		
-		CelestialBody.GEORGE.setR(new Vector2D(200,250));
+		CelestialBody.GEORGE.setR(new Vector2D(2000,3000));
 		CelestialBody.GEORGE.setV(Vector2D.ZERO);
 		
 		findForce(CelestialBody.FRED);
@@ -37,20 +37,18 @@ public class SolarSystem {
 		}
 	}
 
-	private static void findForce(CelestialBody me){									//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
-		//if(me != CelestialBody.SUN){													//Includes moving sun
+	private static void findForce(CelestialBody me){										//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
+		//if(me != CelestialBody.SUN){														//Includes moving sun
 		Vector2D force = new Vector2D();													//2D only ATM!!!
 		for (CelestialBody them : CelestialBody.values()){
 			if(me != them){
 				Vector gravVector = them.getR().sub(me.getR());
-				force.iAdd(gravVector.scale((-G*me.getMass()*them.getMass())/(gravVector.length()*gravVector.length()*gravVector.length())));
-				System.out.println(force.toString());
-
+				force.addTo(gravVector.scale((-G*me.getMass()*them.getMass())/(gravVector.length()*gravVector.length()*gravVector.length())));
+				//System.out.println(force.toString());
 			}
 		}
+		System.out.println(force.toString());
 		me.setForce(force);
-	//	System.out.println(force.toString());
-
 		//}
 	}
 
@@ -65,12 +63,13 @@ public class SolarSystem {
 		SpacePanel p = new SpacePanel();
 		f.add(p);
 		
+		
 		for(int i = 0; i < 10000; i++){
 			update(1e-2);														//~a few hours???
 			p.update();
-		//	System.out.println(i);
+			System.out.println(i);
 			try {
-				Thread.sleep(50);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 			}
 		}
