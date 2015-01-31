@@ -73,26 +73,3 @@ public class SolarSystem {
 	}
 	
 }
-
-
-
-
-
-
-
-	/*private static void findForces(){														//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
-		for (CelestialBody me : CelestialBody.values()){
-			//if(me != CelestialBody.SUN){													//Can include moving sun
-			Vector force = Vector2D.ZERO;													//2D only ATM!!!
-			double mass = me.getMass();
-			Vector r = me.getR();
-			for (CelestialBody them : CelestialBody.values()){
-				if(me != them){
-					Vector gravVector = them.getR().sub(r);
-					force.add(gravVector.scale((G*mass*them.getMass())/(gravVector.length()*gravVector.length()*gravVector.length())));
-				}
-			}
-			me.setForce(force);
-			//}
-		}
-	}*/
