@@ -191,4 +191,9 @@ public class Vector2D extends Vector{
 		double newY = this.x*Math.sin(theta) + this.y*Math.cos(theta);
 		return new Vector2D(newX, newY);
 	}
+
+	public void iAdd(){
+		
+	}
+
 }
