@@ -9,6 +9,7 @@ public class SolarSystem {
 
 	public static final double G = 6.67300E-11;
 
+	//HI!!!
 	
 	private static void intialise(){
 		//for (CelestialBody me : CelestialBody.values()){
