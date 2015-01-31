@@ -3,7 +3,7 @@ package Vector;
 public abstract class Vector{
 	
 	//class members
-	protected double x, y;
+	//protected double x, y, z;
 	
 	//class methods
 	public abstract String toString();

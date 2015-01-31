@@ -6,6 +6,9 @@ public class Vector2D extends Vector{
 	public static final Vector yUnit = new Vector2D(0,1);
 	public static final Vector ZERO = new Vector2D();
 
+	//class members
+	private double x, y;
+	
 	//Constructors
 	public Vector2D(){
 		x = 0;

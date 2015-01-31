@@ -2,12 +2,14 @@ package Vector;
 
 public class Vector3D extends Vector{
 
-	private double z;
 	public static final Vector xUnit = new Vector3D(1,0,0);
 	public static final Vector yUnit = new Vector3D(0,1, 1);
 	public static final Vector zUnit = new Vector3D(0,0,1);
-	public static final Vector zero = new Vector3D();
+	public static final Vector ZERO = new Vector3D();
 
+	//class members
+	private double x, y, z;
+	
 	public Vector3D(){
 		x = 0.0;
 		y = 0.0;
@@ -204,5 +206,23 @@ public class Vector3D extends Vector{
 
 	public Vector normalise() {
 		return this.scale((1/this.length()));
+	}
+
+	@Override
+	public void addTo(Vector b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Vector sub(Vector b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void subTo(Vector b) {
+		// TODO Auto-generated method stub
+		
 	}
 }

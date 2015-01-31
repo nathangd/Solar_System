@@ -1,4 +1,3 @@
-
 import javax.swing.JFrame;
 
 import Vector.Vector;
@@ -6,6 +5,10 @@ import Vector.Vector2D;
 
 
 public class SolarSystem {
+	
+	/*
+	 * ONLY IN 2D ATM
+	 */
 
 	public static final double G = 6.67300E-11;
 
@@ -13,10 +16,10 @@ public class SolarSystem {
 	private static void intialise(){
 		//for (CelestialBody me : CelestialBody.values()){
 		CelestialBody.FRED.setR(new Vector2D(2000,1000));
-		CelestialBody.FRED.setV(Vector2D.xUnit);
+		CelestialBody.FRED.setV(Vector2D.xUnit.scale(1e9));
 		
-		CelestialBody.GEORGE.setR(new Vector2D(2000,3000));
-		CelestialBody.GEORGE.setV(Vector2D.xUnit.scale(-1));
+		CelestialBody.GEORGE.setR(new Vector2D(2000,20000));
+		CelestialBody.GEORGE.setV(Vector2D.xUnit.scale(-1e9));
 		
 		findForce(CelestialBody.FRED);
 		findForce(CelestialBody.GEORGE);
@@ -28,16 +31,16 @@ public class SolarSystem {
 	private static void update(double dt){
 		for (CelestialBody me : CelestialBody.values()){
 			me.setOldA(me.getA());
-			System.out.println("oldA: " + me.getOldA().toString());
-			Integrate.dr(me, dt);
-			System.out.println(me.getR().toString());
+			//System.out.println("oldA: " + me.getOldA().toString());
+			me.setR(Integrate.dr(me, dt));
+			System.out.println("R: " + me.getR().toString());
 		}
 
 		for (CelestialBody me : CelestialBody.values()){
 			findForce(me);
-			System.out.println("A: " + me.getA().toString());
-			Integrate.dv(me, dt);
-			System.out.println(me.getV().toString());
+			//System.out.println("A: " + me.getA().toString());
+			me.setV(Integrate.dv(me, dt));
+			System.out.println("V: " + me.getV().toString());
 			
 		}
 	
@@ -45,11 +48,13 @@ public class SolarSystem {
 
 	private static void findForce(CelestialBody me){										//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
 		//if(me != CelestialBody.SUN){														//Includes moving sun
-		Vector2D force = new Vector2D();													//2D only ATM!!!
+		Vector force = new Vector2D();
+		//Vector force = Vector2D.ZERO;	
 		for (CelestialBody them : CelestialBody.values()){
 			if(me != them){
-				Vector gravVector = me.getR().sub(them.getR());
-				force.addTo(gravVector.scale((-G*me.getMass()*them.getMass())/(gravVector.length()*gravVector.length()*gravVector.length())));
+				Vector gravVector = (me.getR().sub(them.getR())).normalise();
+				//force.addTo(gravVector.scale((-G*me.getMass()*them.getMass())/(gravVector.length()*gravVector.length()*gravVector.length())));
+				force.addTo(gravVector.scale((-G*me.getMass()*them.getMass())/(gravVector.length()*gravVector.length())));
 				//System.out.println(force.toString());
 			}
 		}
@@ -61,6 +66,7 @@ public class SolarSystem {
 	
 	public static void main(String args[]){
 		intialise();
+		
 		JFrame f = new JFrame("GAY");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(800, 800);
@@ -69,10 +75,9 @@ public class SolarSystem {
 		SpacePanel p = new SpacePanel();
 		f.add(p);
 		
-		
-		for(int i = 0; i < 10000; i++){
+		for(int i = 0; i < 1000; i++){
 			System.out.println(i);
-			update(1e-2);														//~a few hours???
+			update(1e-6);														//~a few hours???
 			p.update();
 			try {
 				Thread.sleep(500);
