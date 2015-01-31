@@ -126,6 +126,11 @@ public class Vector2D extends Vector{
 		return new Vector2D(newX, newY);
 	}
 	
+	public void iAdd(Vector b){
+		this.x += b.getX();
+		this.y += b.getY();
+	}
+	
 	//Subtracts vectors.
 	public Vector sub(Vector b){
 		return add(b.scale(-1));

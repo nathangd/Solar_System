@@ -14,7 +14,7 @@ public class SpacePanel extends JPanel{
 		super.paintComponent(g);
 		g.setColor(Color.RED);
 		for (CelestialBody me : CelestialBody.values()){
-			System.out.println(me);
+		//	System.out.println(me);
 			g.fillOval((int)(me.getR().getX()-0.5*me.radius), (int)(me.getR().getY()-0.5*me.radius), (int)me.radius, (int)me.radius);
 		}
 	}
