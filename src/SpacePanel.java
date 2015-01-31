@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 public class SpacePanel extends JPanel{
 
-	private double scale = 5e-3;
+	private double scale = 1e-5;
 	
 	public SpacePanel(){
 		setBackground(Color.BLACK);
