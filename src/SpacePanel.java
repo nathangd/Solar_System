@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 public class SpacePanel extends JPanel{
 
+	private double scale = 1e-3;
+	
 	public SpacePanel(){
 		setBackground(Color.BLACK);
 	}
@@ -15,7 +17,7 @@ public class SpacePanel extends JPanel{
 		g.setColor(Color.RED);
 		for (CelestialBody me : CelestialBody.values()){
 		//	System.out.println(me);
-			g.fillOval((int)(me.getR().getX()-0.5*me.radius), (int)(me.getR().getY()-0.5*me.radius), (int)me.radius, (int)me.radius);
+			g.fillOval((int)(scale*(me.getR().getX()-0.5*me.radius)+200), (int)(scale*(me.getR().getY()-0.5*me.radius)+200), (int)me.radius, (int)me.radius);
 		}
 	}
 	
