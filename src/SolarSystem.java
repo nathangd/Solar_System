@@ -1,13 +1,13 @@
 import javax.swing.JFrame;
 
 import Vector.Vector;
-import Vector.Vector2D;
+import Vector.Vector3D;
 
 
 public class SolarSystem {
 
 	/*
-	 * ONLY IN 2D ATM
+	 * 3D
 	 */
 
 	public static final double G = 6.67300E-11;
@@ -16,11 +16,11 @@ public class SolarSystem {
 	private static void intialise(){
 
 
-		CelestialBody.FAT_FRED.setR(new Vector2D(2000000,10000));
-		CelestialBody.FAT_FRED.setV(Vector2D.xUnit.scale(1e2));
+		CelestialBody.FAT_FRED.setR(new Vector3D(2000000,10000, 0));
+		CelestialBody.FAT_FRED.setV(Vector3D.xUnit.scale(1e2));
 
-		CelestialBody.GEORGE.setR(new Vector2D(2000000,2000000));
-		CelestialBody.GEORGE.setV(Vector2D.xUnit.scale(-1e11));
+		CelestialBody.GEORGE.setR(new Vector3D(2000000,2000000, 0));
+		CelestialBody.GEORGE.setV(Vector3D.xUnit.scale(-1e11));
 
 		//TO DO ALL OF THEM!!!
 		/*for (CelestialBody me : CelestialBody.values()){
@@ -52,7 +52,7 @@ public class SolarSystem {
 	}
 
 	private static void findAcceleration(CelestialBody me){										//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
-		Vector a = new Vector2D();
+		Vector a = new Vector3D();
 		for (CelestialBody them : CelestialBody.values()){
 			if(me != them){
 				Vector gravVector = (me.getR().sub(them.getR())).normalise();
