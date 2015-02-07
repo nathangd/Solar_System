@@ -21,7 +21,7 @@ public class SpacePanel extends JPanel{
 			g.drawString(me.toString(), (int)(scale*(me.getR().getX()-0.5*me.radius)+200), (int)(scale*(me.getR().getY()-0.5*me.radius)+200));
 		}
 	}
-	
+	ghfdf
 	public void update(){
 		this.repaint();
 	}
