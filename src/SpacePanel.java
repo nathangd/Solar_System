@@ -13,7 +13,9 @@ public class SpacePanel extends JPanel{
 	}
 
 	public void paintComponent(Graphics g) {
+
 		super.paintComponent(g);
+		g.translate(400,400);
 		for (CelestialBody me : CelestialBody.values()){
 			g.setColor(Color.RED);
 			g.fillOval((int)(scale*(me.getR().getX()-0.5*me.radius)+200), (int)(scale*(me.getR().getY()-0.5*me.radius)+200), (int)me.radius, (int)me.radius);

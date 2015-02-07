@@ -3,7 +3,7 @@ import Vector.Vector;
 
 public enum CelestialBody {
 
-	/*SUN (1.989e30, 6.9634e8),
+	SUN (1.989e30, 6.9634e8),
 	MERCURY (3.303e23, 2.4397e6),
 	VENUS (4.869e24, 6.0518e6),
 	EARTH (5.976e24, 6.37814e6),
@@ -13,12 +13,12 @@ public enum CelestialBody {
 	URANUS (8.686e25, 2.5559e7),
 	NEPTUNE (1.024e26, 2.4746e7),
 	PLUTO (1.305e22, 1.184e6);
-	*/
+	
 	
 	//TEST SUBJECTS!!!
 	//FRED (1.989e23, 10),
-	FAT_FRED (1.989e25, 30),
-	GEORGE (1.989e23, 15);
+	//FAT_FRED (1.989e25, 30),
+	//GEORGE (1.989e23, 15);
 	
 
 	public final double mass, radius;
