@@ -49,10 +49,7 @@ public class SolarSystem {
 			me.
 		}
 		 */
-		
-		for (CelestialBody me : CelestialBody.values()){
-			findAcceleration(me);
-		}
+			setAccelerations();
 	}
 
 	private static void update(double dt){
@@ -63,8 +60,9 @@ public class SolarSystem {
 			//System.out.println("R: " + me.getR().toString());
 		}
 
-		for (CelestialBody me : CelestialBody.values()){
-			findAcceleration(me);
+		
+			setAccelerations();
+			for (CelestialBody me : CelestialBody.values()){
 			//System.out.println("A: " + me.getA().toString());
 			me.setV(Integrate.dv(me, dt));
 			//System.out.println("V: " + me.getV().toString());
@@ -73,14 +71,12 @@ public class SolarSystem {
 
 	}
 
-	private static void findAcceleration(CelestialBody me){										//GAY ATM AS FINDS STUFF TWICE. NAIVE!!!. TODO NOT REPEAT STUFF!!!
-		Vector a = new Vector3D();
-		for (CelestialBody them : CelestialBody.values()){
-			if(me != them){
-				Vector gravVector = (me.getR().sub(them.getR())).normalise();
-				a.addTo(gravVector.scale((-G*them.getMass())/(gravVector.length()*gravVector.length())));
-				//System.out.println(force.toString());
-			}
+	private static void setAccelerations(){
+		int noOfShits = 8;
+		Thread[] threads = new Thread[noOfShits];
+		AccelerationThread[] aThreads = new AccelerationThread[noOfShits];
+		for (CelestialBody bodies : CelestialBody.values()){
+			//fix here
 		}
 		//System.out.println(force.toString());
 		me.setA(a);
