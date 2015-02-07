@@ -7,7 +7,7 @@ import Vector.Vector3D;
 public class SolarSystem {
 
 	/*
-	 * ONLY IN 2D ATM
+	 * 3D
 	 */
 
 	public static final double G = (6.67300E-11)*(3600*24)/(149597870700.0*149597870700.0*149597870700.0);

@@ -23,7 +23,7 @@ public class SpacePanel extends JPanel{
 			g.drawString(me.toString(), (int)(scale*(me.getR().getX()-0.5*me.radius)), (int)(scale*(me.getR().getY()-0.5*me.radius)));
 		}
 	}
-	
+
 	public void update(){
 		this.repaint();
 	}

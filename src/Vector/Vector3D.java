@@ -210,19 +210,19 @@ public class Vector3D extends Vector{
 
 	@Override
 	public void addTo(Vector b) {
-		// TODO Auto-generated method stub
+		this.x += b.getX();
+		this.y += b.getY();
+		this.z += b.getZ();
 		
 	}
 
 	@Override
 	public Vector sub(Vector b) {
-		// TODO Auto-generated method stub
-		return null;
+		return add(b.scale(-1));
 	}
 
 	@Override
 	public void subTo(Vector b) {
-		// TODO Auto-generated method stub
-		
+		addTo(b.scale(-1));
 	}
 }
